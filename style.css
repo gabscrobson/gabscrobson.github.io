@@ -1,0 +1,18 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main {
+  position: absolute;
+  min-height: 100vh;
+  color: white;
+  color: #250b0c
+}
