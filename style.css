@@ -1,7 +1,15 @@
-body {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 1.5rem;
 }
 
 #bg {
@@ -13,6 +21,63 @@ body {
 main {
   position: absolute;
   min-height: 100vh;
+  width: 50%;
+  min-width: 350px;
   color: white;
-  color: #250b0c
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1, h3 {
+  white-space: nowrap;
+}
+
+h3 {
+  color: rgb(180, 180, 180);
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    font-size: 1.3rem;
+  }  
+  main {
+    min-width: 330px;
+  }
+}
+
+#nav-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#navbar { 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 90%;
+  max-width: 600px;
+}
+
+.nav-item {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+
+.nav-link {
+  padding: 1rem;
+}
+
+.nav-item:hover {
+  color: rgb(180, 180, 180);
+}
+
+.current {
+  border-bottom: 3px solid white;
 }
