@@ -9,7 +9,7 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 #bg {
@@ -38,7 +38,7 @@ h3 {
   color: rgb(180, 180, 180);
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1000px) {
   body {
     font-size: 1.3rem;
   }  
@@ -46,6 +46,37 @@ h3 {
     min-width: 330px;
   }
 }
+
+@media screen and (max-width: 650px) {
+  body {
+    font-size: 1.2rem;
+  }  
+  main {
+    min-width: 330px;
+  }
+}
+
+#social {
+  padding: 5px 0px;
+  display: flex;
+  transform: translateX(-15px);
+}
+
+.social-item {
+  list-style: none;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  margin-left: 15px;
+}
+
+.social-link{
+  color: white;
+}
+.social-link:hover{
+  color: rgb(180, 180, 180);
+}
+
 
 #projects {
   position: absolute;
@@ -56,7 +87,7 @@ h3 {
 }
 
 #nav-container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
