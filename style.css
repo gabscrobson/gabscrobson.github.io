@@ -9,7 +9,7 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 #bg {
@@ -47,18 +47,27 @@ h3 {
   }
 }
 
+#projects {
+  position: absolute;
+}
+
+#about {
+  position: absolute;
+}
+
 #nav-container {
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 #navbar { 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   width: 90%;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .nav-item {
@@ -68,10 +77,11 @@ h3 {
   align-items: center;
   cursor: pointer;
   color: white;
+  transition: all 0.2s ease-in-out;
 }
 
 .nav-link {
-  padding: 1rem;
+  padding: .8rem;
 }
 
 .nav-item:hover {
@@ -80,4 +90,8 @@ h3 {
 
 .current {
   border-bottom: 3px solid white;
+}
+
+.hide {
+  display: none;
 }

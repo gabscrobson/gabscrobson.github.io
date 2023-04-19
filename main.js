@@ -3,6 +3,8 @@ import './style.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+import * as TWEEN from '@tweenjs/tween.js';
+
 // Texture Loader
 const textureLoader = new THREE.TextureLoader();
 
@@ -227,8 +229,47 @@ function animate() {
     mars.rotation.y += 0.002;
 
     // controls.update();
+    TWEEN.update();
 
     renderer.render(scene, camera);
 }
 resize();
 animate();
+
+// Nav
+const navItems = document.querySelectorAll('.nav-item');
+
+const home = document.querySelector('#home');
+const about = document.querySelector('#about');
+const projects = document.querySelector('#projects');
+
+navItems.forEach((navItem) => {
+    navItem.addEventListener('click', () => {
+
+        document.querySelector('.current').classList.remove('current');
+        navItem.classList.add('current');
+
+        if (navItem.id == 'nav-home') {
+            var postween = new TWEEN.Tween(camera.position).to({x: -window.innerWidth/900, y: 0, z: 5}, 5000).easing(TWEEN.Easing.Quadratic.InOut).start();
+
+            home.classList.remove('hide');
+            about.classList.add('hide');
+            projects.classList.add('hide');
+        }
+        else if (navItem.id == 'nav-projects') {
+            var postween = new TWEEN.Tween(camera.position).to({x: -window.innerWidth/900, y: 0, z: 5}, 5000).easing(TWEEN.Easing.Quadratic.InOut).start()
+
+            home.classList.add('hide');
+            about.classList.add('hide');
+            projects.classList.remove('hide');
+        }
+        else if (navItem.id == 'nav-about') {
+            var postween = new TWEEN.Tween(camera.position).to({x: -1, y: 0, z: -2}, 5000).easing(TWEEN.Easing.Quadratic.InOut).start()
+
+            home.classList.add('hide');
+            about.classList.remove('hide');
+            projects.classList.add('hide');
+        }
+
+    });
+});
