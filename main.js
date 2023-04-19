@@ -250,21 +250,23 @@ navItems.forEach((navItem) => {
         navItem.classList.add('current');
 
         if (navItem.id == 'nav-home') {
-            var postween = new TWEEN.Tween(camera.position).to({x: -window.innerWidth/900, y: 0, z: 5}, 5000).easing(TWEEN.Easing.Quadratic.InOut).start();
+            var postween = new TWEEN.Tween(camera.position).to({x: -window.innerWidth/900, y: 0, z: 5}, 4000).easing(TWEEN.Easing.Quadratic.InOut).start();
+            lookAt({x: -window.innerWidth/900, y: 0, z: 0})
 
             home.classList.remove('hide');
             about.classList.add('hide');
             projects.classList.add('hide');
         }
         else if (navItem.id == 'nav-projects') {
-            var postween = new TWEEN.Tween(camera.position).to({x: -window.innerWidth/900, y: 0, z: 5}, 5000).easing(TWEEN.Easing.Quadratic.InOut).start()
+            var postween = new TWEEN.Tween(camera.position).to({x: -window.innerWidth/900, y: 0, z: 5}, 4000).easing(TWEEN.Easing.Quadratic.InOut).start()
 
             home.classList.add('hide');
             about.classList.add('hide');
             projects.classList.remove('hide');
         }
         else if (navItem.id == 'nav-about') {
-            var postween = new TWEEN.Tween(camera.position).to({x: -1, y: 0, z: -2}, 5000).easing(TWEEN.Easing.Quadratic.InOut).start()
+            var postween = new TWEEN.Tween(camera.position).to({x: 0.1, y: 0.1, z: 1.6}, 4000).easing(TWEEN.Easing.Quadratic.InOut).start()
+            lookAt({x: -1, y: 0.3, z: .2})
 
             home.classList.add('hide');
             about.classList.remove('hide');
@@ -273,3 +275,24 @@ navItems.forEach((navItem) => {
 
     });
 });
+
+
+function lookAt(pos) {
+    // Get the camera's current lookAt vector
+    const currentLookAt = new THREE.Vector3();
+    camera.getWorldDirection(currentLookAt);
+    currentLookAt.add(camera.position);
+
+    const startLookAt = currentLookAt;  // The start position of the tween animation
+    const endLookAt = pos; // The end position of the tween animation
+
+    // Create a new tween object
+    const tween = new TWEEN.Tween(startLookAt)
+      .to(endLookAt, 4000) // duration of the tween animation in milliseconds
+      .onUpdate(() => {
+        // Update the camera's lookAt vector
+        camera.lookAt(startLookAt);
+      })
+      .easing(TWEEN.Easing.Quadratic.InOut)
+    .start(); // Start the tween animation
+}
