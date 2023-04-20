@@ -169,7 +169,7 @@ let mars = createPlanet({
   },
 
   atmosphere: {
-    size: 0.003,
+    size: 0,
     material: {
       opacity: 0.3
     },
@@ -179,7 +179,7 @@ let mars = createPlanet({
     },
     glow: {
       size: 0.02,
-      intensity: 0.0005,
+      intensity: 0,
       fade: 7,
       color: 0x250b0c
     }
@@ -258,7 +258,8 @@ navItems.forEach((navItem) => {
             projects.classList.add('hide');
         }
         else if (navItem.id == 'nav-projects') {
-            var postween = new TWEEN.Tween(camera.position).to({x: -window.innerWidth/900, y: 0, z: 5}, 4000).easing(TWEEN.Easing.Quadratic.InOut).start()
+            var postween = new TWEEN.Tween(camera.position).to({x: 1.75, y: 3, z: 1.25}, 4000).easing(TWEEN.Easing.Quadratic.InOut).start()
+            lookAt({x: 0, y: 0, z: 0})
 
             home.classList.add('hide');
             about.classList.add('hide');

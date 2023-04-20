@@ -23,7 +23,6 @@ main {
   min-height: 100vh;
   width: 50%;
   min-width: 350px;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,8 +81,27 @@ h3 {
   position: absolute;
 }
 
-#about {
+.about {
   position: absolute;
+  min-height: 100vh;
+  width: 50%;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+}
+
+#profile-img {
+  width: 90%;
+  max-width: 250px;
+}
+
+#text-container {
+  margin-top: 10px;
+  width: 80%;
+  font-size: 1.2rem;
 }
 
 #nav-container {
@@ -126,3 +144,4 @@ h3 {
 .hide {
   display: none;
 }
+
