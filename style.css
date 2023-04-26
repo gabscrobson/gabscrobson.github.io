@@ -84,13 +84,13 @@ h3 {
 .about {
   position: absolute;
   min-height: 100vh;
-  width: 50%;
-  min-width: 350px;
+  width: 100vw;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: justify;
+  text-align: center;
 }
 
 #profile-img {
@@ -100,7 +100,7 @@ h3 {
 
 #text-container {
   margin-top: 10px;
-  width: 80%;
+  width: 90%;
   font-size: 1.2rem;
 }
 
